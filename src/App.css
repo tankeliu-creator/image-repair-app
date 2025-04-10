@@ -1,38 +1,348 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
+  padding: 24px;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+  padding: 48px 24px;
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+  border-radius: 12px;
+  color: white;
+}
+
+.header .ant-typography {
+  color: white !important;
+  margin-bottom: 24px;
+}
+
+.header h2.ant-typography {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.header-features {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.header-features .ant-typography {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.header-features .anticon {
+  font-size: 16px;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  flex: 1;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.upload-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.upload-placeholder {
+  max-width: 720px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #fff;
+  border: 2px dashed #d9d9d9;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 32px;
+  gap: 16px;
+}
+
+.upload-placeholder .upload-icon {
+  font-size: 48px;
+  color: #1890ff;
+  margin-bottom: 8px;
+}
+
+.upload-placeholder .ant-typography {
+  text-align: center;
+  max-width: 80%;
+}
+
+.upload-placeholder .upload-hint {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.image-comparison {
+  background: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.image-card {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.image-label {
+  position: absolute;
+  top: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  z-index: 1;
+}
+
+.image-label.left {
+  left: 16px;
+}
+
+.image-label.right {
+  right: 16px;
+}
+
+.image-container {
+  position: relative;
+  background-color: #fafafa;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+  cursor: ew-resize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.base-image {
+  position: relative;
+  z-index: 1;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.divider {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #fff;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.divider-handle {
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.divider-handle::before,
+.divider-handle::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 2px;
+  background-color: #666;
+}
+
+.divider-handle::before {
+  transform: translateX(-4px);
+}
+
+.divider-handle::after {
+  transform: translateX(4px);
+}
+
+.repair-container {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+  border-radius: 4px;
+}
+
+.action-buttons-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.restart-button .ant-btn {
+  background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+  border: none;
+  height: 40px;
+  padding: 0 25px;
+  border-radius: 20px;
+  font-size: 15px;
   color: white;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  transition: all 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.restart-button .ant-btn:hover {
+  transform: translateY(-2px) translateX(-50%);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+  background: linear-gradient(45deg, #ff5252, #ff7676);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.restart-button {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.download-button .ant-btn {
+  background: linear-gradient(45deg, #4CAF50, #45a049);
+  border: none;
+  height: 40px;
+  padding: 0 25px;
+  border-radius: 20px;
+  font-size: 15px;
+  color: white;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  transition: all 0.3s ease;
+}
+
+.download-button .ant-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+  background: linear-gradient(45deg, #43a047, #388e3c);
+}
+
+.download-button {
+  margin-left: auto;
+}
+
+.restart-button .ant-btn .anticon,
+.download-button .ant-btn .anticon {
+  font-size: 16px;
+  margin-right: 8px;
+  vertical-align: -1px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.footer {
+  margin-top: 48px;
+  padding: 24px;
+  background: white;
+  border-radius: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-links .ant-btn {
+  padding: 0;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  .App {
+    padding: 16px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .image-container,
+  .repair-container {
+    height: 300px;
+  }
+
+  .upload-placeholder {
+    height: 200px;
   }
 }

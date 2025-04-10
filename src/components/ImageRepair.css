@@ -1,0 +1,57 @@
+.repair-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 24px;
+}
+
+.repair-button {
+  width: 200px;
+  height: 48px;
+  font-size: 18px;
+  border-radius: 24px;
+  transition: all 0.3s;
+}
+
+.repair-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+}
+
+.repair-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 16px;
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.progress-text {
+  margin-top: 16px;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 16px;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  .repair-component {
+    padding: 16px;
+  }
+
+  .repair-button {
+    width: 160px;
+    height: 40px;
+    font-size: 16px;
+  }
+} 
