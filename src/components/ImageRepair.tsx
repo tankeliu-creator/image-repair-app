@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Button, Progress } from 'antd';
 import { PlayCircleOutlined } from '@ant-design/icons';
 import './ImageRepair.css';
@@ -13,13 +13,7 @@ const ImageRepair: React.FC<ImageRepairProps> = ({ imageUrl, onRepairComplete, a
   const [progress, setProgress] = useState<number>(0);
   const [isRepairing, setIsRepairing] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (autoStart) {
-      startRepair();
-    }
-  }, [autoStart]);
-
-  const startRepair = () => {
+  const startRepair = useCallback(() => {
     setIsRepairing(true);
     setProgress(0);
 
@@ -37,7 +31,13 @@ const ImageRepair: React.FC<ImageRepairProps> = ({ imageUrl, onRepairComplete, a
         return newProgress;
       });
     }, 500);
-  };
+  }, [imageUrl, onRepairComplete]);
+
+  useEffect(() => {
+    if (autoStart) {
+      startRepair();
+    }
+  }, [autoStart, startRepair]);
 
   return (
     <div className="repair-content">
