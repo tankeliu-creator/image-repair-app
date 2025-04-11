@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Upload, Button, Typography, Space } from 'antd';
-import { UploadOutlined, ReloadOutlined, DownloadOutlined, SwapOutlined, UndoOutlined, CheckCircleOutlined } from '@ant-design/icons';
+import React, { useState, useRef } from 'react';
+import { Upload, Button, Typography } from 'antd';
+import { UploadOutlined, DownloadOutlined, UndoOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import ImageRepair from './components/ImageRepair';
 import './App.css';
 
