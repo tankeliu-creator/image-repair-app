@@ -10,7 +10,6 @@ const App: React.FC = () => {
   const [originalImage, setOriginalImage] = useState<string>('');
   const [repairedImage, setRepairedImage] = useState<string>('');
   const [dividerPosition, setDividerPosition] = useState<number>(50);
-  const [imageSize, setImageSize] = useState<{ width: number; height: number } | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleUpload = (file: File) => {
@@ -29,7 +28,6 @@ const App: React.FC = () => {
       if (e.target?.result) {
         const img = new Image();
         img.onload = () => {
-          setImageSize({ width: img.width, height: img.height });
           setOriginalImage(e.target?.result as string);
         };
         img.src = e.target.result as string;
@@ -156,7 +154,6 @@ const App: React.FC = () => {
                     onClick={() => {
                       setOriginalImage('');
                       setRepairedImage('');
-                      setImageSize(null);
                     }}
                   >
                     Restart
